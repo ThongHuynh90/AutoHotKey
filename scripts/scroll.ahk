@@ -1,5 +1,13 @@
-﻿applicationname=Scroll
-Menu, Tray, Icon, C:\Program Files (x86)\AutoHotkey\Compiler\Icon\scroll.png
+﻿; Long press for NumLock
+; Long press F1 for copy, F2 for pase
+; F3 f4 for un/redo
+; AOE for ÅØÆ
+; Volume keys for scroll
+
+
+
+applicationname=Scroll
+Menu, Tray, Icon, E:\OneDrive - Ho Chi Minh City University of Technology\Hobby\AutoHotKey\icons\scroll.png
 Volume_Up::
 Send {WheelUp}
 return
@@ -104,4 +112,25 @@ return
 
 Launch_Media::
 MsgBox Notepad has opened
+return
+
+
+$*NumLock::
+IsNumOn := GetKeyState("NumLock" , "T") ; remember quote signs
+if (IsNumOn) { ;NumLock is currently on
+	KeyWait, NumLock, T1 ; wait 1 second
+	If ErrorLevel { ; long pressed
+		SetNumLockState, Off 
+		ToolTip, NumLock off
+		KeyWait, NumLock
+}
+	else { ; short pressed
+	ToolTip, Still on `, hold 1s to off 
+	}
+}
+else{ ;NumLock is currently off
+	SetNumLockState, On  
+	ToolTip, NumLock on
+}
+SetTimer, RemoveToolTip, -500
 return

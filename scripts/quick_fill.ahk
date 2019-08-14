@@ -1,5 +1,5 @@
 ﻿applicationname=AutoFill
-Menu, Tray, Icon, C:\Program Files (x86)\AutoHotkey\Compiler\Icon\Pass.png
+Menu, Tray, Icon, E:\OneDrive - Ho Chi Minh City University of Technology\Hobby\AutoHotKey\icons\Pass.png
 Menu,Tray,NoStandard 
 Menu,Tray,DeleteAll 
 Menu,Tray,Add,AutoFill,ABOUT
