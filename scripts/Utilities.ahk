@@ -6,8 +6,19 @@
 
 
 
-applicationname=Scroll
+applicationname=Utilities
 Menu, Tray, Icon, E:\OneDrive - Ho Chi Minh City University of Technology\Hobby\AutoHotKey\icons\scroll.png
+
+TRAYMENU:
+Menu,Tray,NoStandard 
+Menu,Tray,DeleteAll 
+Menu,Tray,Add,Utilities,ABOUT
+Menu,Tray,Add,E&xit,EXIT
+Menu,Tray,Tip,%applicationname%
+Return 
+
+
+
 Volume_Up::
 Send {WheelUp}
 return
@@ -103,11 +114,15 @@ return
 
 F3::
 Send ^z
+ToolTip, Undo
+SetTimer, RemoveToolTip, -200
 return 
 
 
 F4::
 Send ^y
+ToolTip, Redo
+SetTimer, RemoveToolTip, -200
 return 
 
 Launch_Media::
@@ -134,3 +149,17 @@ else{ ;NumLock is currently off
 }
 SetTimer, RemoveToolTip, -500
 return
+
+
+ABOUT:
+MsgBox, 
+(
+Long press for NumLock
+Long press F1 for copy, F2 for pase
+Short press F3 f4 for un/redo
+AOE for ÅØÆ
+Volume keys for scroll
+)
+Return
+EXIT:
+ExitApp
